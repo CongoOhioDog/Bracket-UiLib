@@ -73,47 +73,44 @@ local Passed, Statement = pcall(function()
 		return Table3
 	end
 	-- [[ // UI Functions // ]]
-	function library:CreateWindow(Properties)
-		Properties = Properties or {}
-		--
-		local Window = {
-			Pages = {},
-			Accent = Color3.fromRGB(255, 120, 30), -- Color3.fromRGB(136, 180, 57) -- Change if wanted
-			Enabled = true,
-			Key = Enum.KeyCode.Z -- Change if wanted
-		}
-		--
-		do
-			local ScreenGui = utility:RenderObject("ScreenGui", {
-				DisplayOrder = 9999,
-				Enabled = true,
-				IgnoreGuiInset = true,
-				Parent = cre,
-				ResetOnSpawn = false,
-				ZIndexBehavior = "Global"
-			})
-			-- //
-			local ScreenGui_MainFrame = utility:RenderObject("Frame", {
-				AnchorPoint = Vector2.new(0.5, 0.5),
-				BackgroundColor3 = Color3.fromRGB(25, 25, 25),
-				BackgroundTransparency = 0,
-				BorderColor3 = Color3.fromRGB(12, 12, 12),
-				BorderMode = "Inset",
-				BorderSizePixel = 1,
-				Parent = ScreenGui,
-				Position = UDim2.new(0.5, 0, 0.5, 0),
-				Size = UDim2.new(0, 660, 0, 560)
-			})
-			-- //
-			local ScreenGui_MainFrame_InnerBorder = utility:RenderObject("Frame", {
-				BackgroundColor3 = Color3.fromRGB(40, 40, 40),
-				BackgroundTransparency = 0,
-				BorderColor3 = Color3.fromRGB(0, 0, 0),
-				BorderSizePixel = 0,
-				Parent = ScreenGui_MainFrame,
-				Position = UDim2.new(0, 1, 0, 1),
-				Size = UDim2.new(1, -2, 1, -2)
-			})
+	    -- [[ // UI Functions // ]]
+    function library:CreateWindow(Properties)
+        Properties = Properties or {}
+        --
+        local Window = {
+            Pages = {},
+            Accent = Color3.fromRGB(255, 120, 30),
+            Enabled = true,
+            Key = Enum.KeyCode.Z
+        }
+        --
+        do
+            local ScreenGui = utility:RenderObject("ScreenGui", {
+                DisplayOrder = 9999,
+                Enabled = true,
+                IgnoreGuiInset = true,
+                Parent = cre,
+                ResetOnSpawn = false,
+                ZIndexBehavior = "Global"
+            })
+            
+            local ScreenGui_MainFrame = utility:RenderObject("Frame", {
+                AnchorPoint = Vector2.new(0.5, 0.5),
+                BackgroundColor3 = Color3.fromRGB(25, 25, 25),
+                BorderColor3 = Color3.fromRGB(12, 12, 12),
+                Position = UDim2.new(0.5, 0, 0.5, 0),
+                Size = UDim2.new(0, 400, 0, 300)  -- Adjusted for smaller UI
+            })
+            ScreenGui_MainFrame.Parent = ScreenGui
+
+            -- Other components...
+            local ScreenGui_MainFrame_InnerBorder = utility:RenderObject("Frame", {
+                BackgroundColor3 = Color3.fromRGB(40, 40, 40),
+                BorderColor3 = Color3.fromRGB(0, 0, 0),
+                Parent = ScreenGui_MainFrame,
+                Position = UDim2.new(0, 1, 0, 1),
+                Size = UDim2.new(1, -2, 1, -2)
+            })
 			-- //
 			local MainFrame_InnerBorder_InnerFrame = utility:RenderObject("Frame", {
 				BackgroundColor3 = Color3.fromRGB(12, 12, 12),
