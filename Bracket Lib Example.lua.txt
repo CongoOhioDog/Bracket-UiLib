@@ -1,7 +1,7 @@
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/CongoOhioDog/Bracket-UiLib/refs/heads/main/Bracket%20Lib%20Source.lua.txt",true))()
 
 -- Window
-local Window, MainGUI = Library:CreateWindow("Bracket-V2")
+local Window, MainGUI = Library:CreateWindow("noob-dude")
 
 -- Tabs
 local Tab1 = Window:CreateTab("Tab 1")
