@@ -1,4 +1,4 @@
-local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/WetCheezit/Bracket-V2/main/src.lua"))()
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/CongoOhioDog/Bracket-UiLib/refs/heads/main/Bracket%20Lib%20Source.lua.txt",true))()
 
 -- Window
 local Window, MainGUI = Library:CreateWindow("Bracket-V2")
