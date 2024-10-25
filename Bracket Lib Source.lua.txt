@@ -399,8 +399,6 @@ function Library:CreateWindow(title, color)
     -- Toggle Main
     local ToggleTypes = {}
     local Enabled = false
-    local oldcolor = Color3.fromRGB(60, 60, 60)
-    local color = Color3.fromRGB(0, 255, 0)
 
     -- Toggle Instances
     local checkbox = Instance.new("Frame")
@@ -411,18 +409,18 @@ function Library:CreateWindow(title, color)
     -- Toggle Properties
     checkbox.Name = "checkbox"
     checkbox.Parent = container_2
-    checkbox.BackgroundColor3 = oldcolor
+    checkbox.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
     checkbox.BorderColor3 = Color3.fromRGB(8, 8, 8)
     checkbox.Size = UDim2.new(0, 12, 0, 12)
     checkbox.ZIndex = 0
-
+    
     UIGradient_2.Color = ColorSequence.new{
-        ColorSequenceKeypoint.new(0.00, Color3.fromRGB(255, 255, 255)), 
+        ColorSequenceKeypoint.new(0.00, Color3.fromRGB(255, 255, 255)),
         ColorSequenceKeypoint.new(1.00, Color3.fromRGB(167, 167, 167))
     }
     UIGradient_2.Rotation = 90
     UIGradient_2.Parent = checkbox
-
+    
     title_3.Name = "title"
     title_3.Parent = checkbox
     title_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -433,8 +431,9 @@ function Library:CreateWindow(title, color)
     title_3.Text = name
     title_3.TextColor3 = Color3.fromRGB(255, 255, 255)
     title_3.TextSize = 15.000
+    title_3.TextStrokeTransparency = 0.000
     title_3.TextXAlignment = Enum.TextXAlignment.Left
-
+    
     main.Name = "main"
     main.Parent = checkbox
     main.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -442,17 +441,41 @@ function Library:CreateWindow(title, color)
     main.Size = UDim2.new(19.5, 0, 1, 0)
     main.Font = Enum.Font.SourceSans
     main.Text = ""
+    main.TextColor3 = Color3.fromRGB(0, 0, 0)
+    main.TextSize = 14.000
+
+    -- Toggle Code
+    local ToggleCallback = callback
+
+    game.RunService.Heartbeat:Connect(function()
+        if (checkbox.BackgroundColor3 == oldcolor) then
+            checkbox.BackgroundColor3 = color
+        end
+    end)
 
     main.MouseButton1Click:Connect(function()
         Enabled = not Enabled
-        checkbox.BackgroundColor3 = Enabled and color or oldcolor
+
+        if (Enabled) then
+            checkbox.BackgroundColor3 = color
+        else
+            checkbox.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
+        end
+
         callback(Enabled)
     end)
 
     -- Toggle Types
     function ToggleTypes:SetState(state)
+        state = state or false
         Enabled = state
-        checkbox.BackgroundColor3 = Enabled and color or oldcolor
+
+        if (Enabled) then
+            checkbox.BackgroundColor3 = color
+        else
+            checkbox.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
+        end
+
         callback(Enabled)
     end
 
