@@ -447,11 +447,14 @@ function Library:CreateWindow(title, color)
 
     local ToggleCallback = callback
 
-    game.RunService.Heartbeat:Connect(function()
-        if (checkbox.BackgroundColor3 == oldcolor) then
-            checkbox.BackgroundColor3 = color
-        end
-    end)
+    local oldcolor = checkbox.BackgroundColor3
+local color = Color3.fromRGB(0, 0, 160)
+
+game.RunService.Heartbeat:Connect(function()
+    if checkbox.BackgroundColor3 ~= oldcolor then
+        checkbox.BackgroundColor3 = oldcolor
+    end
+end)
 
     main.MouseButton1Click:Connect(function()
         Enabled = not Enabled
