@@ -391,8 +391,8 @@ function Library:CreateWindow(title, color)
                 container_2.Size = UDim2.new(0, 250, 0, (UIListLayout_3.AbsoluteContentSize.Y - 14) + 30)
             end)
 
-            -- Groupbox Types
-            function GroupTypes:CreateToggle(name, callback)
+            
+   function GroupTypes:CreateToggle(name, callback)
     name = name or "New Toggle"
     callback = callback or function(v) print(v) end
 
@@ -405,7 +405,7 @@ function Library:CreateWindow(title, color)
     local main = Instance.new("TextButton")
 
     local container_2 = container_2 or Instance.new("Frame")
-    local color = color or Color3.fromRGB(0, 255, 0)
+    local color = Color3.fromRGB(0, 255, 0)
     local oldcolor = checkbox.BackgroundColor3
 
     checkbox.Name = "checkbox"
@@ -480,9 +480,8 @@ function Library:CreateWindow(title, color)
 
     function ToggleTypes:GetState()
         return Enabled
-    end
-end
-
+    end        
+            
                 function ToggleTypes:CreateKeyBind(def, callback)
                     def = def or "NONE"
 
