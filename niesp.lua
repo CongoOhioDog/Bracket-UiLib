@@ -3,8 +3,8 @@ local Workspace, RunService, Players, CoreGui, Lighting = cloneref(game:GetServi
 local ESP = {
     Enabled = true,
     TeamCheck = true,
-    MaxDistance = 200,
-    FontSize = 11,
+    MaxDistance = 400,
+    FontSize = 15,
     FadeOut = {
         OnDistance = true,
         OnDeath = false,
@@ -47,7 +47,7 @@ local ESP = {
             Enabled = true,  
             HealthText = true, Lerp = false, HealthTextRGB = Color3.fromRGB(119, 120, 255),
             Width = 2.5,
-            Gradient = true, GradientRGB1 = Color3.fromRGB(200, 0, 0), GradientRGB2 = Color3.fromRGB(60, 60, 125), GradientRGB3 = Color3.fromRGB(119, 120, 255), 
+            Gradient = true, GradientRGB1 = Color3.fromRGB(200, 0, 0), GradientRGB2 = Color3.fromRGB(60, 60, 125), GradientRGB3 = Color3.fromRGB(0, 200, 0), 
         },
         Boxes = {
             Animate = true,
