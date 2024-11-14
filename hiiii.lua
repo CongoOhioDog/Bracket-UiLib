@@ -4112,3 +4112,5 @@ local replicated_storage = game:GetService("ReplicatedStorage");
 local http_service = game:GetService("HttpService");
 local stats = game:GetService("Stats");
 local tween_service = game:GetService("TweenService");
+
+return lib
